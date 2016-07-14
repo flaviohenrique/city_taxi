@@ -1,0 +1,46 @@
+<% content_for :title do %>
+  <%= @model.name %>
+<% end %>
+
+<% content_for :navbar do %>
+  <p class="navbar-text navbar-right">
+    Tempo Atual: <span class="badge"><%= @model.time %></span>
+  </p>
+
+  <%= form_tag restart_map_path(@model.map.id), method: :put, class: "navbar-form navbar-right" do %>
+    <button type="submit" class="btn btn-default" title="Reiniciar" >
+      Reiniciar <span class="glyphicon glyphicon-repeat"></span>
+    </button>
+  <% end %>
+
+  <%= form_tag move_map_path(@model.map.id), method: :put, class: "navbar-form navbar-right" do %>
+    <button type="submit" class="btn btn-default" title="Avançar" >
+      Avançar <span class="glyphicon glyphicon-play-circle"></span>
+    </button>
+  <% end %>
+<% end %>
+
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <tr>
+          <th></th>
+          <% @model.cols.times do |col| %><td><%= col %></td><% end %>
+        </tr>
+        <% @model.rows.times do |row| %>
+        <tr>
+          <th scope="row"><%= row %></th>
+          <% @model.cols.times do |col| %>
+            <% node = @model.find_node(row, col) %>
+            <% if node.blocked %>
+              <%= render "blocked_node" %>
+            <% else %>
+              <%= render "node", model: @model, row: row, col: col %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>

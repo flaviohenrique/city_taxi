@@ -1,0 +1,4 @@
+<a href="#" data-toggle="popover" title="<%= taxi.name %>"
+   data-content="<%= taxi.passenger.present? ? taxi.passenger.name : "(vazio)" %>">
+  <span class="label label-default"><%= Taxi.statuses[taxi.status]  %></span>
+</a>

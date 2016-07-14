@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: map_blocks
+#
+#  id         :integer          not null, primary key
+#  row        :integer          not null
+#  col        :integer          not null
+#  map_id     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position: 1
+
+two:
+  position: 1
