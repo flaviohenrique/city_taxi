@@ -1,4 +1,4 @@
-class MapGraph::Edge
+class Navigation::Edge
   attr_accessor :src, :dst, :length
 
   def initialize(src, dst, length = 1)

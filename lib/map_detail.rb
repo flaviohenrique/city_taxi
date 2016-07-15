@@ -1,4 +1,4 @@
-class MapCity
+class MapDetail
   attr_reader :map
 
   def initialize(map)

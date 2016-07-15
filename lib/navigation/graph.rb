@@ -1,4 +1,4 @@
-class MapGraph::Graph < Array
+class Navigation::Graph < Array
   attr_reader :edges
 
   def initialize
