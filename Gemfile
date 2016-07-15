@@ -2,11 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -21,6 +16,8 @@ gem 'trailblazer-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'roar'
 gem 'responders', '~> 2.0'
+gem 'pg'
+gem 'puma'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

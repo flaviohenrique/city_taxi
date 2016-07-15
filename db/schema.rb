@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707234214) do
+ActiveRecord::Schema.define(version: 20160707233722) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "map_blocks", force: :cascade do |t|
     t.integer  "row",        null: false
@@ -21,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160707234214) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "map_blocks", ["map_id"], name: "index_map_blocks_on_map_id"
+  add_index "map_blocks", ["map_id"], name: "index_map_blocks_on_map_id", using: :btree
 
   create_table "maps", force: :cascade do |t|
     t.string   "name",       null: false
@@ -45,8 +49,8 @@ ActiveRecord::Schema.define(version: 20160707234214) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "passengers", ["map_id"], name: "index_passengers_on_map_id"
-  add_index "passengers", ["taxi_id"], name: "index_passengers_on_taxi_id"
+  add_index "passengers", ["map_id"], name: "index_passengers_on_map_id", using: :btree
+  add_index "passengers", ["taxi_id"], name: "index_passengers_on_taxi_id", using: :btree
 
   create_table "taxis", force: :cascade do |t|
     t.string   "name",       null: false
@@ -58,6 +62,10 @@ ActiveRecord::Schema.define(version: 20160707234214) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "taxis", ["map_id"], name: "index_taxis_on_map_id"
+  add_index "taxis", ["map_id"], name: "index_taxis_on_map_id", using: :btree
 
+  add_foreign_key "map_blocks", "maps"
+  add_foreign_key "passengers", "maps"
+  add_foreign_key "passengers", "taxis"
+  add_foreign_key "taxis", "maps"
 end
