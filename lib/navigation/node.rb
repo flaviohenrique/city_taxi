@@ -1,15 +1,13 @@
 class Navigation::Node
-  attr_accessor :taxis, :passengers, :blocked
+  attr_accessor :position
 
-  def initialize
+  def initialize(position)
     @blocked = false
-    @taxis  = []
-    @passengers = []
+    @position = position
   end
 
-  def block
+  def block!
     @blocked = true
-    self
   end
 
   def unblocked?
@@ -17,6 +15,6 @@ class Navigation::Node
   end
 
   def blocked?
-    blocked
+    @blocked
   end
 end

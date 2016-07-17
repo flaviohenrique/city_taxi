@@ -4,6 +4,10 @@ class Map::Operation::Detail < Trailblazer::Operation
   representer Map::Representer::Detail
 
   def process(params)
-    self.model = MapDetail.new(Map.find(params[:id]))
+    self.model = map_builder(Map.find(params[:id]))
+  end
+
+  def map_builder(map)
+    CityMap::Builder.new(map).build
   end
 end

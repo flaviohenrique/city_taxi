@@ -1,8 +1,8 @@
 <td class="active">
-  <% model.find_taxi(row, col).each do |taxi| %>
+  <% model.find_taxi(node.position).each do |taxi| %>
     <%= render "taxi", taxi: taxi %>
   <% end %>
-  <% model.find_waiting_passenger(row, col).each do |passenger| %>
+  <% model.find_waiting_passenger(node.position).each do |passenger| %>
     <%= render "passenger", passenger: passenger %>
   <% end %>
 </td>

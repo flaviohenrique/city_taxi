@@ -3,15 +3,15 @@ class Navigation::Builder
     @graph = Navigation::Graph.new
   end
 
-  def add_node
-    Navigation::Node.new.tap do
+  def add_node(position)
+    Navigation::Node.new(position).tap do |node|
       @graph.push node
     end
   end
 
   def add_edges(node, edges)
-    reurn if node.blocked?
-    connect -> (edge) { @graph.connect_mutually(node, edge) }
+    return if node.blocked?
+    connect = -> (edge) { @graph.connect_mutually(node, edge) }
 
     edges.select(&:unblocked?).each(&connect)
   end

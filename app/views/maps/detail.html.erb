@@ -31,11 +31,11 @@
         <tr>
           <th scope="row"><%= row %></th>
           <% @model.cols.times do |col| %>
-            <% node = @model.find_node(row, col) %>
-            <% if node.blocked %>
+            <% node = @model[row, col] %>
+            <% if node.blocked? %>
               <%= render "blocked_node" %>
             <% else %>
-              <%= render "node", model: @model, row: row, col: col %>
+              <%= render "node", model: @model, node: node %>
             <% end %>
           </td>
           <% end %>

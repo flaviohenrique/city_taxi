@@ -12,4 +12,13 @@
 
 class MapBlock < ActiveRecord::Base
   belongs_to :map
+
+  def position=(position)
+    self.row = position.row
+    self.col = position.col
+  end
+
+  def position
+    Position.new(row, col)
+  end  
 end

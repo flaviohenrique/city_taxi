@@ -12,7 +12,7 @@ class Navigation::Graph < Array
     unless self.include?(dst)
       raise ArgumentException, "No such vertex: #{dst}"
     end
-    @edges.push MapGraph::Edge.new(src, dst, length)
+    @edges.push Navigation::Edge.new(src, dst, length)
   end
 
   def connect_mutually(vertex1, vertex2, length = 1)

@@ -19,4 +19,13 @@ class Taxi < ActiveRecord::Base
 
   enum status: [:empty, :going, :full]
 
+  def position=(position)
+    self.row = position.row
+    self.col = position.col
+  end
+
+  def position
+    Position.new(row, col)
+  end
+
 end
