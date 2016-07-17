@@ -17,7 +17,7 @@ class Map::Operation::Create < Trailblazer::Operation
   end
 
   def map_reader
-    @map_reader ||= ::MapFileReader.new
+    @map_reader ||= ::CityMap::FileReader.new
   end
 
   def to_model

@@ -11,8 +11,8 @@ development:
 
 test:
   <<: *default
-  database: city_taxi
+  database: city_taxi_test
 
 production:
   <<: *default
-  database: city_taxi
+  database: city_taxi_production

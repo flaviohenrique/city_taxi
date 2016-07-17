@@ -21,23 +21,4 @@ class Passenger < ActiveRecord::Base
   enum status: [:calling, :waiting, :going]
 
   scope :not_going, -> { where("status <> ?", Passenger.statuses[:going]) }
-
-  def position=(position)
-    self.row = position.row
-    self.col = position.col
-  end
-
-  def position
-    Position.new(row, col)
-  end
-
-  def dest_position=(position)
-    self.dest_row = position.row
-    self.dest_col = position.col
-  end
-
-  def dest_position
-    Position.new(dest_row, dest_col)
-  end
-
 end

@@ -18,14 +18,4 @@ class Taxi < ActiveRecord::Base
   belongs_to :map
 
   enum status: [:empty, :going, :full]
-
-  def position=(position)
-    self.row = position.row
-    self.col = position.col
-  end
-
-  def position
-    Position.new(row, col)
-  end
-
 end

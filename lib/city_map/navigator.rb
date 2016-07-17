@@ -1,9 +1,9 @@
-class CityMap::Layer
+class CityMap::Navigator
   attr_reader :grid
 
-  def initialize(grid, navigation)
-    @grid = grid
-    @navigation = navigation
+  def initialize(grid, graph)
+    @grid       = grid
+    @graph      = graph
   end
 
   def nearest_taxi(passenger, taxis)
@@ -14,27 +14,27 @@ class CityMap::Layer
   end
 
   def taxi_neighbors(taxi)
-    @navigation.neighbors(find_node(taxi.position))
+    @graph.neighbors(find_node(taxi.position))
   end
 
   def taxi_destination_next_node(taxi)
     passenger = taxi.passenger
-    taxi_node = find_node(taxi.position)
-    dest_node = find_node(passenger.dest_position)
-
-    [next_node(taxi_node, dest_node), dest_node]
+    taxi_next_node(taxi.position, passenger.dest_position)
   end
 
   def taxi_passenger_next_node(taxi)
     passenger = taxi.passenger
-    taxi_node = find_node(taxi.position)
-    dest_node = find_node(passenger.position)
+    taxi_next_node(taxi.position, passenger.position)
+  end
+
+  private
+
+  def taxi_next_node(taxi_position, dest_position)
+    taxi_node = find_node(taxi_position)
+    dest_node = find_node(dest_position)
 
     [next_node(taxi_node, dest_node), dest_node]
   end
-
-
-  private
 
   def find_node(position)
     @grid[*position.to_a]
@@ -44,21 +44,15 @@ class CityMap::Layer
     current.first < nearest.first ? current : nearest
   end
 
-
-
-  # def find_dest_node(object)
-  #   @grid[object.dest_row, object.dest_col]
-  # end
-
   def next_node(current_node, dest_node)
-    @navigation.dijkstra(current_node, dest_node)[:path].second
+    @graph.dijkstra(current_node, dest_node)[:path].second
   end
 
   def taxis_distance(taxi, passenger)
     taxi_node = find_node(taxi.position)
     passenger_node = find_node(passenger.position)
 
-    route = @navigation.dijkstra(taxi_node, passenger_node)
+    route = @graph.dijkstra(taxi_node, passenger_node)
 
     [route[:distance], taxi] if route.present?
   end
