@@ -15,4 +15,8 @@ test:
 
 production:
   <<: *default
-  database: city_taxi_production
+  host: "city-taxi-db.c2snxpf2vr6z.us-west-2.rds.amazonaws.com"
+  post: "5432"
+  database: "city_taxi"
+  username: "citytaxi"
+  password: "citytaxi"
