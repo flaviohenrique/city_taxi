@@ -1,7 +1,6 @@
 require 'csv'
 
 class CityMap::FileReader
-  
   BLOCK_VALUE = 'x'
 
   def read(file, map)

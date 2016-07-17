@@ -10,7 +10,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Todos os Mapas <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% Map.all.each do |map| %>
-            <li> <%= link_to map.name, detail_map_path(map) %></li>
+            <li> <%= link_to map.name, map_path(map) %></li>
             <% end %>
           </ul>
         </li>

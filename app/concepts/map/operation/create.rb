@@ -6,7 +6,7 @@ class Map::Operation::Create < Trailblazer::Operation
   model Map, :create
 
   contract Map::Contract::Create
-  representer Map::Representer::Create
+  representer Map::Representer::Show
 
   def process(params)
     validate(params) do

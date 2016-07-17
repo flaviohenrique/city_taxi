@@ -1,5 +1,17 @@
 # README #
 
+## City Taxi ###
+
+Api Url : http://city-taxi-env.fas9ph8fd3.us-west-2.elasticbeanstalk.com
+
+Sistema criado usando Ruby On rails
+
+Com endpoints em formato de API REST para as seguintes ações:
+* Enviar CSV para criar o Mapa da Cidade
+
+<!-- http://city-taxi-env.fas9ph8fd3.us-west-2.elasticbeanstalk.com/api/v1/maps/1/detail -->
+
+<!--
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
@@ -26,4 +38,4 @@ This README would normally document whatever steps are necessary to get your app
 ### Who do I talk to? ###
 
 * Repo owner or admin
-* Other community or team contact
+* Other community or team contact -->

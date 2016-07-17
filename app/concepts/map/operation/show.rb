@@ -1,8 +1,9 @@
 class Map::Operation::Show < Trailblazer::Operation
-  contract do
-  end
+  include Responder
+  include Representer
+  include Model
 
-  def process(params)
-    # do whatever you feel like.
-  end
+  model Map, :find
+
+  representer Map::Representer::Show
 end
