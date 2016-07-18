@@ -13,8 +13,7 @@ class CityMap
       return unless @passenger.calling?
 
       taxi = @navigator.nearest_taxi(self, taxis.select(&:empty?))
-
-      waiting_for(taxi)
+      waiting_for(taxi) if taxi
     end
 
     def waiting_on(position)
