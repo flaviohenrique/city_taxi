@@ -9,17 +9,17 @@ Sistema criado usando Ruby On Rails
 Com endpoints para a API REST com as seguintes ações:
 
  * Mapa
-  * [Enviar CSV para criar o Mapa da Cidade](#create_map)
-  * [Lista dos mapas criados](#list_map)
-  * [Avançar o tempo no mapa](#move_map)
-  * [Reiniciar a simulação](#restart_map)
-  * [Detalhe da situação atual do mapa](#detail_map)
+   * [Enviar CSV para criar o Mapa da Cidade](#create_map)
+   * [Lista dos mapas criados](#list_map)
+   * [Avançar o tempo no mapa](#move_map)
+   * [Reiniciar a simulação](#restart_map)
+   * [Detalhe da situação atual do mapa](#detail_map)
  * Taxi
-  * [Adicionar Taxi no mapa](#create_taxi)
-  * [Detalhe do Taxi](#show_taxi)
+   * [Adicionar Taxi no mapa](#create_taxi)
+   * [Detalhe do Taxi](#show_taxi)
  * Passageiro
-  * [Adicionar Passageiro no mapa](#create_passenger)
-  * [Detalhe do Passageiro](#show_passenger)
+   * [Adicionar Passageiro no mapa](#create_passenger)
+   * [Detalhe do Passageiro](#show_passenger)
 
 Com endpoints html para:
 
