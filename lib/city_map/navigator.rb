@@ -19,21 +19,25 @@ class CityMap::Navigator
 
   def taxi_destination_next_node(taxi)
     passenger = taxi.passenger
-    taxi_next_node(taxi.position, passenger.dest_position)
+    graph_next_node(taxi.position, passenger.dest_position)
   end
 
   def taxi_passenger_next_node(taxi)
     passenger = taxi.passenger
-    taxi_next_node(taxi.position, passenger.position)
+    graph_next_node(taxi.position, passenger.position)
+  end
+
+  def valid_passenger_route?(init, dest)
+    graph_next_node(init, dest).first.present?
   end
 
   private
 
-  def taxi_next_node(taxi_position, dest_position)
-    taxi_node = find_node(taxi_position)
+  def graph_next_node(init_position, dest_position)
+    init_node = find_node(init_position)
     dest_node = find_node(dest_position)
 
-    [next_node(taxi_node, dest_node), dest_node]
+    [next_node(init_node, dest_node), dest_node]
   end
 
   def find_node(position)
@@ -45,7 +49,9 @@ class CityMap::Navigator
   end
 
   def next_node(current_node, dest_node)
-    nodes = @graph.dijkstra(current_node, dest_node)[:path]
+    routes = @graph.dijkstra(current_node, dest_node)
+    return unless routes
+    nodes = routes[:path]
 
     nodes.respond_to?(:[]) ? nodes.second : nodes
   end

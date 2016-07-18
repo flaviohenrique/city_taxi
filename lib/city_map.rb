@@ -47,6 +47,9 @@ class CityMap
     @passengers.select{ |passenger| passenger.on(position) }
   end
 
+  def valid_passenger_route?(init, dest)
+    @navigator.valid_passenger_route?(init, dest)
+  end
 
   def move
     Map.transaction do

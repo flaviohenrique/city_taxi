@@ -21,4 +21,8 @@ class Passenger::CreateForm < Reform::Form
     Validators::Position.new(passenger).validate(:row, :col)
     Validators::Position.new(passenger).validate(:dest_row, :dest_col)
   end
+
+  validate do |passenger|
+    Validators::PassengerDestination.new(passenger).validate
+  end
 end
