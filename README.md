@@ -1,4 +1,3 @@
-
 # Cidade de Taxis #
 
 Api Url : <http://city-taxi-env.fas9ph8fd3.us-west-2.elasticbeanstalk.com>
@@ -10,7 +9,7 @@ Com endpoints para a API REST com as seguintes ações:
  * Mapa
    * [Enviar CSV para criar o Mapa da Cidade](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-criar-mapas)
    * [Lista dos mapas criados](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-listar-mapas)
-   * [Avançar o tempo no mapa](#move_map)(https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-avancar-tempo)
+   * [Avançar o tempo no mapa](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-avancar-tempo)
    * [Reiniciar a simulação](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-reiniciar)
    * [Detalhe da situação atual do mapa](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-detalhe-mapa)
  * Taxi
@@ -24,7 +23,7 @@ Com endpoints html para:
 
   * Avançar o tempo no mapa
   * Reiniciar p tempo no mapa
-  * Detalhe da situação atual do mapa
+  * Detalhe da situação atual do mapa [/maps/:id.html](http://city-taxi-env.fas9ph8fd3.us-west-2.elasticbeanstalk.com/maps/1.html)
 
 Arquitetura da Aplicação
 
