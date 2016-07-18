@@ -33,7 +33,7 @@ Arquitetura da Aplicação
   * Separação das regras de negocio utilizando "Operations" (Service Objects)
   * Separação da serialização de json utilizando "Representers" (Serialializers/Deserializers)
  * Na navegação no Mapa separei em duas camandas:
- 	1. Matrix com as linhas e colunas do mapa de acordo com o CSV inicial
+ 	1. Matriz com as linhas e colunas do mapa de acordo com o CSV inicial
  	2. Grafo com as ligações entre as posições onde os taxis e passageiros podem se deslocar. O grafo também serve como base para utlizacão do algoritmo "dijkstra" para busca dos menores caminhos entre os taxis e os passageiros
 
 
