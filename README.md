@@ -1,6 +1,5 @@
-# READ-ME #
 
-## Cidade de Taxis ##
+# Cidade de Taxis #
 
 Api Url : <http://city-taxi-env.fas9ph8fd3.us-west-2.elasticbeanstalk.com>
 
@@ -9,17 +8,17 @@ Sistema criado usando Ruby On Rails
 Com endpoints para a API REST com as seguintes ações:
 
  * Mapa
-   * [Enviar CSV para criar o Mapa da Cidade](https://bitbucket.org/flaviohenrique85/city_taxi/markdown-header-criar-mapas)
-   * [Lista dos mapas criados](#list_map)
-   * [Avançar o tempo no mapa](#move_map)
-   * [Reiniciar a simulação](#restart_map)
-   * [Detalhe da situação atual do mapa](#detail_map)
+   * [Enviar CSV para criar o Mapa da Cidade](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-criar-mapas)
+   * [Lista dos mapas criados](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-listar-mapas)
+   * [Avançar o tempo no mapa](#move_map)(https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-avancar-tempo)
+   * [Reiniciar a simulação](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-reiniciar)
+   * [Detalhe da situação atual do mapa](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-detalhe-mapa)
  * Taxi
-   * [Adicionar Taxi no mapa](#create_taxi)
-   * [Detalhe do Taxi](#show_taxi)
+   * [Adicionar Taxi no mapa](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-adicionar-taxi)
+   * [Detalhe do Taxi](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-exibir-taxi)
  * Passageiro
-   * [Adicionar Passageiro no mapa](#create_passenger)
-   * [Detalhe do Passageiro](#show_passenger)
+   * [Adicionar Passageiro no mapa](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-adicionar-passageiro)
+   * [Detalhe do Passageiro](https://bitbucket.org/flaviohenrique85/city_taxi#markdown-header-exibir-passageiro)
 
 Com endpoints html para:
 
@@ -39,10 +38,10 @@ Arquitetura da Aplicação
  	2. Grafo com as ligações entre as posições onde os taxis e passageiros podem se deslocar. O grafo também serve como base para utlizacão do algoritmo "dijkstra" para busca dos menores caminhos entre os taxis e os passageiros
 
 
-### End Points ###
+## End Points ##
 
 ### Criar Mapas
-#### `POST /api/v1/maps`
+### `POST /api/v1/maps`
 
 Por causa de ter upload de arquivos usei como padrão **multipart/form-data**
 
@@ -63,7 +62,7 @@ file
 }
 ```
 
-<a id="list_map"></a>
+### Listar Mapas
 ### `GET /api/v1/maps.json`
 #### response
 
@@ -84,7 +83,7 @@ file
 ]
 ```
 
-<a id="move_map"></a>
+### Avançar Tempo
 ### `PUT /api/v1/maps/:id/move.json`
 #### request
 
@@ -129,7 +128,7 @@ Vazio
 }
 
 ```
-<a id="restart_map"></a>
+### Reiniciar
 ### `PUT /api/v1/maps/:id/restart.json`
 #### request
 
@@ -163,7 +162,7 @@ Vazio
   ]
 }
 ```
-<a id="detail_map"></a>
+### Detalhe Mapa
 ### `GET /api/v1/maps/:id/detail.json`
 #### request
 
@@ -208,7 +207,7 @@ Vazio
 }
 ```
 
-<a id="create_taxi"></a>
+### Adicionar Taxi
 ### `POST /api/v1/taxis.json`
 #### request
 
@@ -236,7 +235,7 @@ Vazio
 }
 ```
 
-<a id="show_taxi"></a>
+### Exibir Taxi
 ### `GET /api/v1/taxis/:id.json`
 #### response
 
@@ -253,7 +252,7 @@ Vazio
 }
 ```
 
-<a id="create_passenger"></a>
+### Adicionar Passageiro
 ### `POST /api/v1/passengers.json`
 #### request
 
@@ -284,7 +283,7 @@ Vazio
 }
 ```
 
-<a id="show_passenger"></a>
+### Exibir Passageiro
 ### `GET /api/v1/passengers/:id.json`
 #### response
 
