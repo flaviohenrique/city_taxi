@@ -1,11 +1,7 @@
-class Map::Operation::Move < Trailblazer::Operation
+class Map::Operation::Move < Map::Operation::Detail
   def process(params)
-    self.model = map_builder(Map.find(params[:id]))
-
-    self.model.move
-  end
-
-  def map_builder(map)
-    CityMap::Builder.new(map).build
+    self.model = map_builder(Map.find(params[:id])).tap do |city_map|
+      city_map.move
+    end
   end
 end

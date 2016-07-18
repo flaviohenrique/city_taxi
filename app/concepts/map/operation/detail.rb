@@ -10,4 +10,8 @@ class Map::Operation::Detail < Trailblazer::Operation
   def map_builder(map)
     CityMap::Builder.new(map).build
   end
+
+  def to_model
+    model
+  end
 end

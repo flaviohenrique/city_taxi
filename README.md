@@ -11,9 +11,9 @@ Com endpoints para a API REST com as seguintes ações:
  * Mapa
   * [Enviar CSV para criar o Mapa da Cidade](#create_map)
   * [Lista dos mapas criados](#list_map)
-  * Avançar o tempo no mapa
-  * Reiniciar p tempo no mapa
-  * Detalhe da situação atual do mapa
+  * [Avançar o tempo no mapa](#move_map)
+  * [Reiniciar a simulação](#restart_map)
+  * [Detalhe da situação atual do mapa](#detail_map)
  * Taxi
   * [Adicionar Taxi no mapa](#create_taxi)
   * [Detalhe do Taxi](#show_taxi)
@@ -26,6 +26,17 @@ Com endpoints html para:
   * Avançar o tempo no mapa
   * Reiniciar p tempo no mapa
   * Detalhe da situação atual do mapa
+
+Arquitetura da Aplicação
+
+ * Utilização de rails como MVC
+ * Utilização da gem Trail Blazer para separar melhor as camadas da aplicação
+  * Separação da validação dos modelos utilizando "Contracts" (Form Objects)
+  * Separação das regras de negocio utilizando "Operations" (Service Objects)
+  * Separação da serialização de json utilizando "Representers" (Serialializers/Deserializers)
+ * Na navegação no Mapa separei em duas camandas:
+ 	1. Matrix com as linhas e colunas do mapa de acordo com o CSV inicial
+ 	2. Grafo com as ligações entre as posições onde os taxis e passageiros podem se deslocar. O grafo também serve como base para utlizacão do algoritmo "dijkstra" para busca dos menores caminhos entre os taxis e os passageiros
 
 
 ### End Points ###
@@ -42,7 +53,7 @@ file
 
 #### response
 
-> Success (Status: **201**) com resposta em **application/json**
+> Created (Status: **201**) com resposta em **application/json**
 
 ```json
 {
@@ -71,6 +82,130 @@ file
     "time": 0
   }
 ]
+```
+
+<a id="move_map"></a>
+### `PUT /api/v1/maps/:id/move.json`
+#### request
+
+```json
+Vazio
+```
+
+#### response
+
+> Success (Status: **200**)
+
+```json
+{
+  "id": 1,
+  "name": "Cidade 1",
+  "time": 1,
+  "rows": 30,
+  "cols": 30,
+  "area": [
+  	[
+      {
+        "row": 0,
+        "col": 0,
+        "blocked": false,
+        "taxis": [
+          {
+            "name": "Joao 1",
+            "status": "full"
+          }
+        ],
+        "passengers": [
+          {
+            "name": "Joao Passenger",
+            "status": "going"
+          }
+        ]
+      },
+      ...
+   ],
+   ...
+  ]
+}
+
+```
+<a id="restart_map"></a>
+### `PUT /api/v1/maps/:id/restart.json`
+#### request
+
+```json
+Vazio
+```
+
+#### response
+
+> Success (Status: **200**)
+
+```json
+{
+  "id": 1,
+  "name": "Cidade 1",
+  "time": 0,
+  "rows": 30,
+  "cols": 30,
+  "area": [
+  	[
+      {
+        "row": 0,
+        "col": 0,
+        "blocked": false,
+        "taxis": [],
+        "passengers": []
+      },
+      ...
+   ],
+   ...
+  ]
+}
+```
+<a id="detail_map"></a>
+### `GET /api/v1/maps/:id/detail.json`
+#### request
+
+```json
+Vazio
+```
+
+#### response
+
+> Success (Status: **200**)
+
+```json
+{
+  "id": 1,
+  "name": "Cidade 1",
+  "time": 1,
+  "rows": 30,
+  "cols": 30,  
+  "area": [
+  	[
+      {
+        "row": 0,
+        "col": 0,
+        "blocked": false,
+        "taxis": [
+          {
+            "name": "Joao 1",
+            "status": "full"
+          }
+        ],
+        "passengers": [
+          {
+            "name": "Joao Passenger",
+            "status": "going"
+          }
+        ]
+      },
+      ...
+   ],
+   ...
+  ]
+}
 ```
 
 <a id="create_taxi"></a>

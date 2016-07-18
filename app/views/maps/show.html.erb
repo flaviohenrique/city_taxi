@@ -7,13 +7,13 @@
     Tempo Atual: <span class="badge"><%= @model.time %></span>
   </p>
 
-  <%= form_tag restart_map_path(@model.map.id), method: :put, class: "navbar-form navbar-right" do %>
+  <%= form_tag restart_map_path(@model.id), method: :put, class: "navbar-form navbar-right" do %>
     <button type="submit" class="btn btn-default" title="Reiniciar" >
       Reiniciar <span class="glyphicon glyphicon-repeat"></span>
     </button>
   <% end %>
 
-  <%= form_tag move_map_path(@model.map.id), method: :put, class: "navbar-form navbar-right" do %>
+  <%= form_tag move_map_path(@model.id), method: :put, class: "navbar-form navbar-right" do %>
     <button type="submit" class="btn btn-default" title="Avançar" >
       Avançar <span class="glyphicon glyphicon-play-circle"></span>
     </button>

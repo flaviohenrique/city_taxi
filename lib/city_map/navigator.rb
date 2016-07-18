@@ -45,7 +45,9 @@ class CityMap::Navigator
   end
 
   def next_node(current_node, dest_node)
-    @graph.dijkstra(current_node, dest_node)[:path].second
+    nodes = @graph.dijkstra(current_node, dest_node)[:path]
+
+    nodes.respond_to?(:[]) ? nodes.second : nodes
   end
 
   def taxis_distance(taxi, passenger)

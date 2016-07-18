@@ -14,6 +14,18 @@ module Api::V1
       respond_with present Map::Operation::Show
     end
 
+    def detail
+      respond Map::Operation::Detail
+    end
+
+    def move
+      respond Map::Operation::Move
+    end
+
+    def restart
+      respond Map::Operation::Restart
+    end
+
     def create_params
       params.permit(:name, :file)
     end

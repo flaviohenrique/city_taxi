@@ -3,8 +3,11 @@ require 'representable/json'
 
 class Map::Representer::Detail < Representable::Decorator
   include Representable::JSON
-  #include Roar::JSON::JSONAPI
 
+  property :id
   property :name
   property :time
+  property :rows
+  property :cols
+  collection :area, decorator: Map::Representer::DetailRow
 end
